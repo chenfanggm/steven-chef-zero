@@ -1,0 +1,20 @@
+-P INPUT ACCEPT
+-A INPUT -i lo -j ACCEPT
+-A INPUT -i eth0 -j ACCEPT
+-A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+-A INPUT -p tcp --dport 22 -j ACCEPT
+
+# Port 80 for http
+-A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
+
+# Port 3000 for wolfer-web
+-A INPUT -p tcp -m tcp --dport 3000 -j ACCEPT
+
+# Port 8080 for wolfer-api
+-A INPUT -p tcp -m tcp --dport 8080 -j ACCEPT
+
+-P OUTPUT ACCEPT
+
+#*nat
+# Redirect anything on eth0 coming to port 80 to local port 8080
+#-A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 8080

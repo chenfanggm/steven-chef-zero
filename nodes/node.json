@@ -1,0 +1,27 @@
+{
+  "name": "wolferx",
+  "chef_environment": "_default",
+  "normal": {
+    "tags": [
+
+    ],
+    "tomcat": {
+      "keystore_password": "uTRkMKaR7p01aJgLriUT",
+      "truststore_password": "TMpdDhy0Iml1prP2syrG"
+    }
+  },
+  "run_list": [
+  "recipe[wolfer-init]",
+  "recipe[git]",
+  "recipe[iptables]",
+  "recipe[iptables_conf]",
+  "recipe[nginx]",
+  "recipe[java]",
+  "recipe[cassandra-dse]",
+  "recipe[tomcat]",
+  "recipe[maven]",
+  "recipe[wolfer-api]",
+  "recipe[wolfer-end]"
+]
+
+}
